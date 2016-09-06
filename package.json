@@ -48,7 +48,7 @@
     "async": "^2.0.0",
     "aws-sdk": "^2.4.1",
     "im-metadata": "^3.0.0",
-    "im-resize": "^2.3.1",
+    "im-resize": "sunsetlincoln/node-im-resize",
     "node-uuid": "^1.4.7"
   },
   "devDependencies": {
