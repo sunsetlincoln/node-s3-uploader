@@ -89,8 +89,11 @@ Image.prototype._upload = function _upload(dest, version, cb) {
 
   const format = extname(version.path).substr(1).toLowerCase();
 
+  const destParts = dest.split('/');
+  const filename= destParts.pop();
+
   const options = {
-    Key: `${dest}${version.suffix || ''}.${format}`,
+    Key: `${destParts.join('/')}/${version.prefix || ''}${filename}${version.suffix || ''}.${format}`,
     ACL: version.awsImageAcl,
     Body: fs.createReadStream(version.path),
     ContentType: `image/${format === 'jpg' ? 'jpeg' : format}`,
