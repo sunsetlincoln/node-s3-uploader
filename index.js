@@ -107,8 +107,6 @@ Image.prototype._upload = function _upload(dest, version, cb) {
     options.CacheControl = `public, max-age=${version.awsImageMaxAge}`;
   }
   
-  console.log('*****', options)
-
   this.upload.s3.putObject(options, (err, data) => {
     if (err) { return cb(err); }
 
