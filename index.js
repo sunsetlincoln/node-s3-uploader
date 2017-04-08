@@ -47,6 +47,10 @@ Image.prototype.getDest = function getDest(cb) {
 };
 
 Image.prototype.resizeVersions = function resizeVersions(results, cb) {
+  if(this.upload.opts.versions.length === 0) {
+    cb(null, []);
+    return;
+  }
   resize(results.metadata, {
     path: this.upload.opts.resize.path,
     prefix: this.upload.opts.resize.prefix,
